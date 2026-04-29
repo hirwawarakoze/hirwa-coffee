@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kigali Premium Coffee</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+<style>
+body {
+    margin:0;
+    font-family:'Poppins', sans-serif;
+    background:#f5f1ec;
+    color:#333;
+    scroll-behavior:smooth;
+}
+
+nav {
+    background:#3e2723;
+    padding:15px;
+    text-align:center;
+}
+nav a {
+    color:#fff;
+    margin:0 15px;
+    text-decoration:none;
+}
+
+.hero {
+    height:90vh;
+    background:url('https://images.unsplash.com/photo-1509042239860-f550ce710b93') center/cover;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    text-align:center;
+}
+.hero h1 {
+    font-size:3rem;
+    animation:fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {opacity:0; transform:translateY(20px);}
+    to {opacity:1;}
+}
+
+section {
+    padding:50px 20px;
+    max-width:1100px;
+    margin:auto;
+}
+
+.products {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.card {
+    background:white;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    transition:transform .3s;
+}
+.card:hover {
+    transform:scale(1.05);
+}
+.card img {
+    width:100%;
+}
+
+form {
+    display:flex;
+    flex-direction:column;
+}
+input, textarea, select {
+    margin:10px 0;
+    padding:10px;
+}
+
+button {
+    background:#6f4e37;
+    color:white;
+    padding:12px;
+    border:none;
+    cursor:pointer;
+}
+
+footer {
+    background:#2e1b1b;
+    color:white;
+    text-align:center;
+    padding:30px;
+}
+
+.icon {
+    color:#6f4e37;
+    margin-right:8px;
+}
+
+iframe {
+    width:100%;
+    height:300px;
+    border:0;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<a href="#about">About</a>
+<a href="#products">Products</a>
+<a href="#order">Order</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<div class="hero">
+<h1>☕ Kigali Premium Coffee</h1>
+</div>
+
+<section id="about">
+<h2><i class="fa fa-coffee icon"></i>Our Story</h2>
+<p>
+We are a Kigali-based coffee shop delivering organic, ethically sourced coffee from Rwanda’s highlands.
+Our beans are grown in volcanic soils and roasted with precision.
+</p>
+
+<h3>Where We Work</h3>
+<p>Kigali, Rwanda</p>
+
+<h3>Where We Grow Coffee</h3>
+<p>Southern & Western Rwanda highlands (Arabica coffee zones)</p>
+
+<h3>Health Benefits</h3>
+<ul>
+<li>Boosts energy ☕</li>
+<li>Rich in antioxidants</li>
+<li>Improves focus and metabolism</li>
+</ul>
+</section>
+
+<section id="products">
+<h2>Our Products</h2>
+<div class="products">
+<div class="card">
+<img src="https://images.unsplash.com/photo-1511920170033-f8396924c348">
+<h3>Espresso</h3>
+</div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0">
+<h3>Cappuccino</h3>
+</div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085">
+<h3>Latte</h3>
+</div>
+</div>
+</section>
+
+<section id="order">
+<h2>Order Coffee</h2>
+<form id="orderForm">
+
+<input type="text" name="name" placeholder="Your Name" required>
+
+<label>Coffee Type</label>
+<select name="coffee">
+<option>Espresso</option>
+<option>Cappuccino</option>
+<option>Latte</option>
+</select>
+
+<label>Size</label>
+<select name="size">
+<option>Small</option>
+<option>Medium</option>
+<option>Large</option>
+</select>
+
+<label>Milk</label>
+<input type="radio" name="milk" value="Regular"> Regular
+<input type="radio" name="milk" value="Soy"> Soy
+
+<label>Extras</label>
+<input type="checkbox" name="extras" value="Sugar"> Sugar
+<input type="checkbox" name="extras" value="Chocolate"> Chocolate
+
+<input type="number" name="quantity" placeholder="Quantity">
+
+<textarea name="delivery" placeholder="Delivery details"></textarea>
+
+<button type="submit">Place Order</button>
+<button type="button" onclick="makePayment()">Pay & Order</button>
+</form>
+</section>
+
+<section id="contact">
+<h2>Feedback</h2>
+<form id="feedbackForm">
+
+<input type="text" name="name" placeholder="Your Name">
+
+<label>Rate Us</label>
+<input type="radio" name="rating" value="1">1
+<input type="radio" name="rating" value="2">2
+<input type="radio" name="rating" value="5">5
+
+<label>How did you hear about us?</label>
+<select name="source">
+<option>Friends</option>
+<option>Social Media</option>
+</select>
+
+<textarea name="message" placeholder="Feedback"></textarea>
+
+<button type="submit">Send Feedback</button>
+</form>
+
+<h3>Location</h3>
+<iframe src="https://maps.google.com/maps?q=Kigali&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+</section>
+
+<footer>
+<p><i class="fa fa-phone"></i> +250793415040</p>
+<p><i class="fa fa-envelope"></i> 130721160050@reb.ac.rw</p>
+<p>© 2026 Kigali Premium Coffee</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script src="https://checkout.flutterwave.com/v3.js"></script>
+<script>
+(function(){
+emailjs.init("YOUR_PUBLIC_KEY");
+})();
+
+document.getElementById("orderForm").addEventListener("submit", function(e){
+e.preventDefault();
+alert("Order submitted!");
+});
+
+document.getElementById("feedbackForm").addEventListener("submit", function(e){
+e.preventDefault();
+alert("Feedback sent!");
+});
+</script><script>
+function makePayment() {
+    FlutterwaveCheckout({
+        public_key: "YOUR_PUBLIC_KEY_HERE",
+        tx_ref: "TX-" + Date.now(),
+        amount: 5, // change dynamically if needed
+        currency: "RWF",
+        payment_options: "card, mobilemoneyrwanda",
+        customer: {
+            email: "customer@email.com",
+            name: document.querySelector('[name="name"]').value
+        },
+        customizations: {
+            title: "Kigali Premium Coffee",
+            description: "Coffee Order Payment",
+            logo: "https://cdn-icons-png.flaticon.com/512/924/924514.png"
+        },
+        callback: function (data) {
+            alert("Payment successful! Transaction ID: " + data.transaction_id);
+        },
+        onclose: function() {
+            console.log("Payment closed");
+        }
+    });
+}
+let quantity = document.querySelector('[name="quantity"]').value;
+let price = quantity * 2; // example pricing
+</script>
+
+</body>
+</html>
