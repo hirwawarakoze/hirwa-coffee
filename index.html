@@ -275,6 +275,68 @@ function makePayment() {
 let quantity = document.querySelector('[name="quantity"]').value;
 let price = quantity * 2; // example pricing
 </script>
+    <script>function makePayment() {
+
+    let quantity = document.querySelector('[name="quantity"]').value || 1;
+
+    // Coffee price per cup
+    let amount = quantity * 2000;
+
+    let customerName = document.querySelector('[name="name"]').value;
+
+    FlutterwaveCheckout({
+
+        public_key: "YOUR_FLUTTERWAVE_PUBLIC_KEY",
+
+        tx_ref: "HIRWA-" + Date.now(),
+
+        amount: amount,
+
+        currency: "RWF",
+
+        payment_options: "mobilemoneyrwanda,card",
+
+        customer: {
+            email: "customer@example.com",
+            phone_number: "+250793415040",
+            name: customerName
+        },
+
+        customizations: {
+            title: "Hirwa's Coffee",
+            description: "Coffee Order Payment",
+            logo: "https://cdn-icons-png.flaticon.com/512/924/924514.png"
+        },
+
+        callback: function (response) {
+
+            console.log(response);
+
+            if (response.status === "successful") {
+
+                alert(
+                    "Payment successful! Transaction ID: " 
+                    + response.transaction_id
+                );
+
+                // OPTIONAL:
+                // send email
+                // save order
+                // redirect
+
+            } else {
+
+                alert("Payment failed.");
+
+            }
+        },
+
+        onclose: function () {
+            console.log("Payment window closed");
+        }
+
+    });
+}</script>
 
 </body>
 </html>
